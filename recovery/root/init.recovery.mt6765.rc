@@ -7,6 +7,9 @@ on fs
     setprop crypto.ready 1
     write /sys/class/power_supply/usb/otg_switch 1
 
+on boot
+    start health-hal-2-0
+
 service keystore_auth /system/bin/keystore_auth
     oneshot
     user system
