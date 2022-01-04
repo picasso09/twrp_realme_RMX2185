@@ -1,5 +1,4 @@
 on fs
-    write /sys/class/power_supply/usb/otg_switch 1
     start prepdecrypt
 
 service keystore_auth /system/bin/keystore_auth
