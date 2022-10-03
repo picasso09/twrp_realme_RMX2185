@@ -4,8 +4,6 @@
 /cache           ext4      /dev/block/platform/bootdevice/by-name/cache
 /dtbo            emmc      /dev/block/platform/bootdevice/by-name/dtbo
 /vbmeta          emmc      /dev/block/platform/bootdevice/by-name/vbmeta      flags=backup;flashimg
-/persist         ext4      /dev/block/platform/bootdevice/by-name/persist     flags=backup
-/metadata        ext4      /dev/block/platform/bootdevice/by-name/md_udc
 
 # IMEI and modem related
 # below four partitions are ext4, but we are using only for backup so emmc
