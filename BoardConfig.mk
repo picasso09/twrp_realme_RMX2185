@@ -135,7 +135,7 @@ TW_INCLUDE_REPACKTOOLS := true
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
 
-TW_DEVICE_VERSION := nocrypt
+#TW_DEVICE_VERSION := nocrypt
 
 # Statusbar icons flags
 TW_STATUS_ICONS_ALIGN := center
