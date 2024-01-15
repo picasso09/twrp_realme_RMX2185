@@ -160,3 +160,6 @@ TW_STATUS_ICONS_ALIGN := center
 TW_CUSTOM_CPU_POS := 50
 TW_CUSTOM_CLOCK_POS := 300
 TW_CUSTOM_BATTERY_POS := 800
+
+# PBRP specific build flags
+PB_TORCH_PATH := "/sys/class/flashlight_core/flashlight"
