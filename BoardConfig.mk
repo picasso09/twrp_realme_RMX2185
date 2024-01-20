@@ -47,6 +47,7 @@ TARGET_OTA_ASSERT_DEVICE := RMX2185,rmx2185
 
 # Kernel
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=bootloader
 BOARD_KERNEL_IMAGE_NAME := kernel
 BOARD_BOOT_HEADER_VERSION := 2
 BOARD_KERNEL_BASE := 0x40078000
@@ -144,6 +145,9 @@ TW_NO_SCREEN_BLANK := true
 TW_SCREEN_BLANK_ON_BOOT := true
 TARGET_USES_MKE2FS := true
 TW_OZIP_DECRYPT_KEY := 0000
+TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone3/temp
+TW_NO_HAPTICS := true
+TW_FRAMERATE := 60
 
 # resetprop and magiskboot
 TW_INCLUDE_RESETPROP := true
