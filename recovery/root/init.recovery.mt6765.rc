@@ -41,6 +41,9 @@ service keymaster-4-0 /system/bin/hw/android.hardware.keymaster@4.0-service.trus
     seclabel u:r:recovery:s0
 
 service gatekeeperd /system/bin/gatekeeperd /data/misc/gatekeeper
+    user root
+    group root drmrpc
+    disabled
     seclabel u:r:recovery:s0
 
 service gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
@@ -61,6 +64,7 @@ on property:ro.crypto.state=unsupported
     stop mobicore
     stop keymaster-4-0
     stop gatekeeper-1-0
+    stop gatekeeperd
 
 on property:ro.crypto.state=unencrypted
     stop hal_cryptoeng_oppo
@@ -74,3 +78,4 @@ on property:twrp.decrypt.done=true
     stop mobicore
     stop keymaster-4-0
     stop gatekeeper-1-0
+    stop gatekeeperd
