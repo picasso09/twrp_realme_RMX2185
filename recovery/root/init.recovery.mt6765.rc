@@ -34,13 +34,7 @@ service hal_cryptoeng_oppo /system/bin/hw/vendor.oplus.hardware.cryptoeng@1.0-se
     disabled
     seclabel u:r:recovery:s0
 
-service keymaster-4-0 /system/bin/hw/android.hardware.keymaster@4.0-service.trustonic
-    user root
-    group root drmrpc
-    disabled
-    seclabel u:r:recovery:s0
-
-service gatekeeperd /system/bin/gatekeeperd /data/misc/gatekeeper
+service keymaster-4-0 /system/bin/android.hardware.keymaster@4.0-service.trustonic
     user root
     group root drmrpc
     disabled
@@ -56,26 +50,22 @@ on property:hwservicemanager.ready=true
     start hal_cryptoeng_oppo
     start mobicore
     start keymaster-4-0
-    start gatekeeperd
     start gatekeeper-1-0
 
 on property:ro.crypto.state=unsupported
     stop hal_cryptoeng_oppo
     stop mobicore
     stop keymaster-4-0
-    stop gatekeeperd
     stop gatekeeper-1-0
 
 on property:ro.crypto.state=unencrypted
     stop hal_cryptoeng_oppo
     stop mobicore
     stop keymaster-4-0
-    stop gatekeeperd
     stop gatekeeper-1-0
 
 on property:twrp.decrypt.done=true
     stop hal_cryptoeng_oppo
     stop mobicore
     stop keymaster-4-0
-    stop gatekeeperd
     stop gatekeeper-1-0

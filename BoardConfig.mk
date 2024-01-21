@@ -145,8 +145,6 @@ TW_NO_SCREEN_BLANK := true
 TW_SCREEN_BLANK_ON_BOOT := true
 TARGET_USES_MKE2FS := true
 TW_OZIP_DECRYPT_KEY := 0000
-TW_FRAMERATE := 60
-TW_NO_HAPTICS := true
 
 # resetprop and magiskboot
 TW_INCLUDE_RESETPROP := true
