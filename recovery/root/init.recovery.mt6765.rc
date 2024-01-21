@@ -56,26 +56,26 @@ on property:hwservicemanager.ready=true
     start hal_cryptoeng_oppo
     start mobicore
     start keymaster-4-0
-    start gatekeeper-1-0
     start gatekeeperd
+    start gatekeeper-1-0
 
 on property:ro.crypto.state=unsupported
     stop hal_cryptoeng_oppo
     stop mobicore
     stop keymaster-4-0
-    stop gatekeeper-1-0
     stop gatekeeperd
+    stop gatekeeper-1-0
 
 on property:ro.crypto.state=unencrypted
     stop hal_cryptoeng_oppo
     stop mobicore
     stop keymaster-4-0
-    stop gatekeeper-1-0
     stop gatekeeperd
+    stop gatekeeper-1-0
 
 on property:twrp.decrypt.done=true
     stop hal_cryptoeng_oppo
     stop mobicore
     stop keymaster-4-0
-    stop gatekeeper-1-0
     stop gatekeeperd
+    stop gatekeeper-1-0
