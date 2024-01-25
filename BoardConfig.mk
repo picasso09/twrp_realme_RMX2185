@@ -148,6 +148,7 @@ TW_SCREEN_BLANK_ON_BOOT := true
 TARGET_USES_MKE2FS := true
 TW_OZIP_DECRYPT_KEY := 0000
 TW_FRAMERATE := 60
+TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone3/temp"
 
 # resetprop and magiskboot
 TW_INCLUDE_RESETPROP := true
@@ -164,4 +165,4 @@ TW_CUSTOM_CLOCK_POS := 300
 TW_CUSTOM_BATTERY_POS := 800
 
 # PBRP specific build flags
-PB_TORCH_PATH := "/sys/class/flashlightdrv/kd_camera_flashlight"
+PB_TORCH_PATH := "/proc/qcom_flash"
