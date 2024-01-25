@@ -46,7 +46,13 @@ service gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service
     disabled
     seclabel u:r:recovery:s0
 
-on property:hwservicemanager.ready=true
+on property:crypto.ready=1 && property:ro.crypto.state=encrypted
+    mkdir /mnt/vendor/persist
+    mount ext4 /dev/block/by-name/persist /mnt/vendor/persist rw
+    install_keyring
+    setprop crypto.ready 1
+
+on property:hwservicemanager.ready=true && property:crypto.ready=1
     start hal_cryptoeng_oppo
     start mobicore
     start keymaster-4-0
