@@ -145,9 +145,10 @@ TW_NO_SCREEN_BLANK := true
 TW_SCREEN_BLANK_ON_BOOT := true
 TARGET_USES_MKE2FS := true
 TW_OZIP_DECRYPT_KEY := 0000
-TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone3/temp
+TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone3/temp"
 TW_NO_HAPTICS := true
 TW_FRAMERATE := 60
+TW_TORCH_PATH := "/proc/qcom_flash"
 
 # resetprop and magiskboot
 TW_INCLUDE_RESETPROP := true
