@@ -2,16 +2,16 @@ on init
     mkdir /mnt/vendor/persist
     mount ext4 /dev/block/by-name/persist /mnt/vendor/persist rw
 
-on fs
-    install_keyring
-    setprop crypto.ready 1
-
 service keystore_auth /system/bin/keystore_auth
     oneshot
     user system
     group root
     disabled
     seclabel u:r:recovery:s0
+
+on property:ro.crypto.state=encrypted && property:ro.crypto.type=file
+    install_keyring
+    setprop crypto.ready 1
 
 service keystore /system/bin/keystore /tmp/misc/keystore
     user root
@@ -58,15 +58,18 @@ on property:ro.crypto.state=unsupported
     stop mobicore
     stop keymaster-4-0
     stop gatekeeper-1-0
+    setprop crypto.ready 0
 
 on property:ro.crypto.state=unencrypted
     stop hal_cryptoeng_oppo
     stop mobicore
     stop keymaster-4-0
     stop gatekeeper-1-0
+    setprop crypto.ready 0
 
 on property:twrp.decrypt.done=true
     stop hal_cryptoeng_oppo
     stop mobicore
     stop keymaster-4-0
     stop gatekeeper-1-0
+    setprop crypto.ready 0
