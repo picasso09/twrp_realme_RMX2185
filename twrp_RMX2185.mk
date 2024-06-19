@@ -17,18 +17,20 @@
 #
 
 # Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/twrp/config/common.mk)
+
+PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,$(LOCAL_PATH)/recovery/root,recovery/root)
 
 PRODUCT_DEVICE := RMX2185
 PRODUCT_NAME := twrp_RMX2185
 PRODUCT_BRAND := realme
 PRODUCT_MODEL := RMX2185
 PRODUCT_MANUFACTURER := realme
-TW_DEVICE_VERSION := By Picasso09 (UI2)
-
+TW_DEVICE_VERSION := RUI2
 PRODUCT_SHIPPING_API_LEVEL := 29
 
 # Dynamic
@@ -36,9 +38,5 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # fastbootd
 PRODUCT_PACKAGES += \
-    android.hardware.fastboot@1.0-impl-mock
-
-# Bypass anti-rollback ROMs protection
-# Set build date to Jan 1 2009 00:00:00
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.date.utc=1230768000
+    android.hardware.fastboot@1.0-impl-mock \
+    android.hardware.fastboot@1.0-impl-mock.recovery
