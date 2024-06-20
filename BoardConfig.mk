@@ -16,7 +16,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/realme/RMX2020
+DEVICE_PATH := device/realme/RMX2185
 
 # Build
 ALLOW_MISSING_DEPENDENCIES := true
