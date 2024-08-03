@@ -2,9 +2,6 @@ on init
     mkdir /mnt/vendor/persist
     mount ext4 /dev/block/by-name/persist /mnt/vendor/persist rw
     setprop persist.sys.firstlaunch false
-
-# For vibrator
-   write /sys/class/leds/vibrator/trigger "transient"
     
 on fs
     install_keyring
@@ -98,10 +95,3 @@ on boot
     start health-hal-2-1
     start vendor.vibrator-default
 
- # For vibrator
-    chown system system /sys/class/leds/vibrator/trigger
-    chown system system /sys/class/leds/vibrator/activate
-    chown system system /sys/class/leds/vibrator/brightness
-    chown system system /sys/class/leds/vibrator/duration
-    chown system system /sys/class/leds/vibrator/state
-    chown system system /sys/class/timed_output/vibrator/enable
